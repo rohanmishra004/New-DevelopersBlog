@@ -13,17 +13,12 @@
 <body>
     <div class="container">
         <h2 class="mb-3">
-            <%=article.title%>
+            Edit Blog
         </h2>
-        <div class="text-muted mb-2">
-            <%=article.createdAt.toLocaleDateString()%>
-        </div>
-        <a href="/" class="btn btn-secondary">All Articles</a>
-        <a href="/articles/edit/<%=article.id%>" class="btn btn-info">%>Edit</a>
 
-        <div>
-            <%=article.sanitzedHtml%>
-        </div>
+        <form action="/articles/<%=article.id%>?_method=PUT" method="POST">
+            <%- include('form_fields')%>
+        </form>
 
 
     </div>

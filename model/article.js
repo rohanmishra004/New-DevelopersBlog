@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const marked = require('marked');
 const slugify = require('slugify')
+const createDomPurifier = require('dompurify');
+const {JSDOM} = require('jsdom')
 
-
+const domPurify = createDomPurifier(new JSDOM().window)
 
 
 
@@ -28,6 +30,7 @@ const articleSchema = new mongoose.Schema({
         required: true,
         unique:true
     }
+
 })
 
 articleSchema.pre('validate', function(next){
